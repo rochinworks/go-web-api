@@ -10,6 +10,7 @@ import (
 func httpRouter() chi.Router {
 
 	handler := handler.NewHandler()
+
 	// chi router is easy to use and lightweight
 	r := chi.NewRouter()
 
