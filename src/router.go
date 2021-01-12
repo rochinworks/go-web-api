@@ -1,16 +1,15 @@
 package main
 
 import (
-	// import a kafka struct defined by it's interface
-	// import a postgres struct defined by an interface
-
-	"github.com/rochinworks/go-home/pg"
+	"go-web-api/src/handler"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 )
 
-func httpRouter(pg pg.Controller) (chi.Router, error) {
+func httpRouter() chi.Router {
+
+	handler := handler.NewHandler()
 	// chi router is easy to use and lightweight
 	r := chi.NewRouter()
 
@@ -20,7 +19,7 @@ func httpRouter(pg pg.Controller) (chi.Router, error) {
 	r.Use(middleware.Recoverer)
 
 	// base routes
-	r.Get("/", baseHandler())
+	r.Get("/", handler.BaseHandler())
 
-	return r, nil
+	return r
 }
