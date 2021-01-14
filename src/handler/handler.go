@@ -1,5 +1,6 @@
 package handler
 
+// implements the Handler interface which is enforced in package main
 type handler struct{}
 
 func NewHandler() *handler {

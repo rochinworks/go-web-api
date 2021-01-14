@@ -18,7 +18,7 @@ func main() {
 
 	server := &http.Server{
 		Handler: r,
-		Addr:    "localhost:8080", // env var
+		Addr:    "localhost:8080",
 	}
 	log.Info("server up and running at ", server.Addr)
 	log.Fatal(server.ListenAndServe())
