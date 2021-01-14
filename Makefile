@@ -9,6 +9,6 @@ start:
 	$(DOCKER_COMPOSE) exec app gin -i --path=src --bin=app
 
 start-dev:
-	$(DOCKER_COMPOSE) -f ./build/docker-compose.yml up -d
+	$(DOCKER_COMPOSE) -f ./build/docker-compose.yml up -d db
 	cd ../src ;\
 	HOST="localhost" gin -i run src/*.go
