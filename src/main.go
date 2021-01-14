@@ -4,6 +4,8 @@ import (
 	"net/http"
 
 	log "github.com/sirupsen/logrus"
+
+	"go-web-api/src/handler"
 )
 
 func main() {
@@ -11,8 +13,8 @@ func main() {
 	// ========================================
 	// start server with middleware
 	// ========================================
-
-	r := httpRouter()
+	h := handler.NewHandler()
+	r := httpRouter(h)
 
 	server := &http.Server{
 		Handler: r,
